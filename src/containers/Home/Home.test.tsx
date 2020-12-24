@@ -1,24 +1,24 @@
 import React from 'react'
 import { render } from '@testing-library/react'
-import HomePage from './HomePage'
+import Home from './Home'
 import { ThemeContextProvider } from '../../shared/context'
 
-describe('<HomePage />', () => {
+describe('<Home />', () => {
   test(`should render a <div>`, () => {
     const { container } = render(
       <ThemeContextProvider>
-        <HomePage />
+        <Home />
       </ThemeContextProvider>
     )
     expect(container.querySelector('div')).toBeInTheDocument()
   })
 
-  test(`should render 'AJ Clemente'`, () => {
+  test(`should render "Hi, I'm AJ Clemente! 👋"`, () => {
     const { getByText } = render(
       <ThemeContextProvider>
-        <HomePage />
+        <Home />
       </ThemeContextProvider>
     )
-    expect(getByText('AJ Clemente')).toBeInTheDocument()
+    expect(getByText(`Hi, I'm AJ Clemente! 👋`)).toBeInTheDocument()
   })
 })

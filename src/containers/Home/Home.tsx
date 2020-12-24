@@ -3,9 +3,9 @@ import styled from 'styled-components'
 import { Heading, Paragraph, Strong, Link } from '../../shared/components'
 
 // Component
-const HomePage: FC = () => {
+const Home: FC = () => {
   return (
-    <HomePageWrapper>
+    <HomeWrapper>
       <Content>
         <Heading>Hi, I'm AJ Clemente! 👋</Heading>
         <Paragraph>
@@ -27,12 +27,12 @@ const HomePage: FC = () => {
           .
         </Paragraph>
       </Content>
-    </HomePageWrapper>
+    </HomeWrapper>
   )
 }
 
 // Styles
-const HomePageWrapper = styled.div`
+const HomeWrapper = styled.div`
   width: 100%;
   height: 100vh;
   display: flex;
@@ -58,8 +58,8 @@ const Content = styled.article`
 `
 
 // Display Names
-HomePage.displayName = `HomePage`
-HomePageWrapper.displayName = `HomePageWrapper`
+Home.displayName = `Home`
+HomeWrapper.displayName = `HomeWrapper`
 Content.displayName = `Content`
 
-export default memo(HomePage)
+export default memo(Home)

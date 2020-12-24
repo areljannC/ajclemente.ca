@@ -1,8 +1,8 @@
 import React, { FC, memo } from 'react'
-import { HomePage } from '../containers'
+import { Home } from '../containers'
 
 // Component
-const Index: FC = () => <HomePage />
+const Index: FC = () => <Home />
 
 // Display Names
 Index.displayName = `Index`
