@@ -1,10 +1,15 @@
-import React, { FC, memo } from 'react'
+import React, { FC, Fragment, memo } from 'react'
+import Head from 'next/head'
 import styled from 'styled-components'
 import { Heading, Paragraph, Strong, Link } from '../../shared/components'
 
 // Component
-const Home: FC = () => {
-  return (
+const Home: FC = () => (
+  <Fragment>
+    <Head>
+      <title>AJ Clemente</title>
+      <meta name='description' content='AJ Clemente | Software Developer from Canada.' />
+    </Head>
     <HomeWrapper>
       <Content>
         <Heading>Hi, I'm AJ Clemente! 👋</Heading>
@@ -28,8 +33,8 @@ const Home: FC = () => {
         </Paragraph>
       </Content>
     </HomeWrapper>
-  )
-}
+  </Fragment>
+)
 
 // Styles
 const HomeWrapper = styled.div`
