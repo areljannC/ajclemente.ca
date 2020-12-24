@@ -1,11 +1,32 @@
 import React, { FC, memo } from 'react'
 import styled from 'styled-components'
+import { Heading, Paragraph, Strong, Link } from '../../shared/components'
 
 // Component
 const HomePage: FC = () => {
   return (
     <HomePageWrapper>
-      <Heading>AJ Clemente</Heading>
+      <Content>
+        <Heading>Hi, I'm AJ Clemente! 👋</Heading>
+        <Paragraph>
+          I'm a <Strong>React.js Developer</Strong> from <Strong>Canada</Strong>.
+        </Paragraph>
+        <Paragraph>
+          I currently work at <Strong>Ford Motor Company</Strong> with the{' '}
+          <Strong>2021 Mustang Mach-E's SYNC 4</Strong> infotainment dash team.
+        </Paragraph>
+        <Paragraph>
+          You can reach me on{' '}
+          <Link href='https://www.linkedin.com/in/aj-clemente/' target='_blank'>
+            LinkedIn
+          </Link>{' '}
+          and on{' '}
+          <Link href='https://github.com/areljannC/' target='_blank'>
+            GitHub
+          </Link>
+          .
+        </Paragraph>
+      </Content>
     </HomePageWrapper>
   )
 }
@@ -21,13 +42,24 @@ const HomePageWrapper = styled.div`
   background-color: ${({ theme }) => theme.colors.background};
 `
 
-const Heading = styled.h1`
-  color: ${({ theme }) => theme.colors.text};
-  font-family: ${({ theme }) => theme.font};
+const Content = styled.article`
+  height: fit-content;
+  width: 265px;
+  display: flex;
+  flex-direction: column;
+
+  @media ${({ theme }) => theme.breakpoints.tablet} {
+    width: 500px;
+  }
+
+  @media ${({ theme }) => theme.breakpoints.laptopLarge} {
+    width: 600px;
+  }
 `
 
 // Display Names
 HomePage.displayName = `HomePage`
 HomePageWrapper.displayName = `HomePageWrapper`
+Content.displayName = `Content`
 
 export default memo(HomePage)
