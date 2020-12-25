@@ -17,7 +17,7 @@ const Home: FC = () => (
           I'm a <Strong>React.js Developer</Strong> from <Strong>Canada</Strong>.
         </Paragraph>
         <Paragraph>
-          I currently work at <Strong>Ford Motor Company</Strong> with the{' '}
+          I currently work for <Strong>Ford Motor Company</Strong> with the{' '}
           <Strong>2021 Mustang Mach-E's SYNC 4</Strong> infotainment dash team.
         </Paragraph>
         <Paragraph>
