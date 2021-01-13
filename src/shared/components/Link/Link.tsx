@@ -6,6 +6,7 @@ type LinkProps = {
   children: ReactNode
   href?: string
   target?: string
+  color?: 'link' | 'nonLink'
 }
 
 type LinkWrapperProps = {
@@ -14,15 +15,15 @@ type LinkWrapperProps = {
 }
 
 // Component
-const Link: FC<LinkProps> = ({ children, href, target }) => (
-  <LinkWrapper href={href} target={target}>
+const Link: FC<LinkProps> = ({ children, href, target, color = 'link' }) => (
+  <LinkWrapper href={href} target={target} color={color}>
     {children}
   </LinkWrapper>
 )
 
 // Style
 const LinkWrapper = styled.a<LinkWrapperProps>`
-  color: ${({ theme }) => theme.colors.primary};
+  color: ${({ color, theme }) => (color === 'link' ? theme.colors.primary : theme.colors.text)};
   text-decoration: none;
 `
 
