@@ -1,3 +1,5 @@
+import { breakpointWidths } from './'
+
 export const DARK_THEME = 'DARK_THEME'
 export const LIGHT_THEME = 'LIGHT_THEME'
 
@@ -21,7 +23,7 @@ const fontWeights = {
 
 const lineHeights = {
   body: 1.6,
-  heading: 1.125,
+  heading: 1.125
 }
 
 const space: ['0px', '4px', '8px', '16px', '32px', '64px', '128px', '256px', '512px'] = [
@@ -39,14 +41,14 @@ const space: ['0px', '4px', '8px', '16px', '32px', '64px', '128px', '256px', '51
 // Breakpoints are based on this article:
 // https://jsramblings.com/how-to-use-media-queries-with-styled-components/
 const breakpoints = {
-  mobileSmall: `(min-width: 320px)`,
-  mobileMedium: `(min-width: 375px)`,
-  mobileLarge: `(min-width: 425px)`,
-  tablet: `(min-width: 768px)`,
-  laptop: `(min-width: 1024px)`,
-  laptopLarge: `(min-width: 1440px)`,
-  desktop: `(min-width: 2560px)`,
-  desktopLarge: `(min-width: 2560px)`,
+  mobileSmall: `(min-width: ${breakpointWidths.mobileSmall}px)`,
+  mobileMedium: `(min-width: ${breakpointWidths.mobileMedium}px)`,
+  mobileLarge: `(min-width: ${breakpointWidths.mobileLarge}px)`,
+  tablet: `(min-width: ${breakpointWidths.tablet}px)`,
+  laptop: `(min-width: ${breakpointWidths.laptop}px)`,
+  laptopLarge: `(min-width: ${breakpointWidths.laptopLarge}px)`,
+  desktop: `(min-width: ${breakpointWidths.desktop}px)`,
+  desktopLarge: `(min-width: ${breakpointWidths.desktopLarge}px)`
 }
 
 const baseTheme = {
@@ -61,6 +63,8 @@ const baseTheme = {
 export const darkTheme = {
   ...baseTheme,
   colors: {
+    white: '#fff',
+    black: '#060606',
     text: '#fff',
     background: '#060606',
     primary: '#3cf',
@@ -75,6 +79,8 @@ export const darkTheme = {
 export const lightTheme = {
   ...baseTheme,
   colors: {
+    white: '#fff',
+    black: '#060606',
     text: '#000',
     background: '#fff',
     primary: '#07c',
