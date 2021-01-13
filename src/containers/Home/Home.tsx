@@ -1,7 +1,7 @@
 import React, { FC, Fragment, memo } from 'react'
 import Head from 'next/head'
 import styled from 'styled-components'
-import { Heading, Paragraph, Strong, Link } from '../../shared/components'
+import { Navbar, Container, Heading, Paragraph, Strong, Link } from '../../shared/components'
 
 // Component
 const Home: FC = () => (
@@ -10,8 +10,9 @@ const Home: FC = () => (
       <title>AJ Clemente</title>
       <meta name='description' content='AJ Clemente | Software Developer from Canada.' />
     </Head>
+    <Navbar />
     <HomeWrapper>
-      <Content>
+      <Container>
         <Heading>Hi, I'm AJ Clemente! 👋</Heading>
         <Paragraph>
           I'm a <Strong>React.js Developer</Strong> from <Strong>Canada</Strong>.
@@ -31,7 +32,7 @@ const Home: FC = () => (
           </Link>
           .
         </Paragraph>
-      </Content>
+      </Container>
     </HomeWrapper>
   </Fragment>
 )
@@ -39,32 +40,15 @@ const Home: FC = () => (
 // Styles
 const HomeWrapper = styled.div`
   width: 100%;
-  height: 100vh;
+  height: 100%;
+  min-height: calc(100vh - 65px);
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   background-color: ${({ theme }) => theme.colors.background};
-`
-
-const Content = styled.article`
-  height: fit-content;
-  width: 265px;
-  display: flex;
-  flex-direction: column;
-
-  @media ${({ theme }) => theme.breakpoints.tablet} {
-    width: 500px;
-  }
-
-  @media ${({ theme }) => theme.breakpoints.laptopLarge} {
-    width: 600px;
-  }
 `
 
 // Display Names
 Home.displayName = `Home`
 HomeWrapper.displayName = `HomeWrapper`
-Content.displayName = `Content`
+Container.displayName = `Container`
 
 export default memo(Home)
