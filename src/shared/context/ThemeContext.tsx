@@ -64,6 +64,10 @@ export const ThemeContextProvider: FC<ThemeContextProviderPropsType> = ({
 // Styles
 const GlobalStyle = createGlobalStyle`
   ${reset}
+
+  * {
+    box-sizing: border-box;
+  }
 `
 
 // Display Name
