@@ -1,0 +1,33 @@
+{
+  "root": true,
+  "api": {
+    "projectId": "6o2cr990",
+    "dataset": "production"
+  },
+  "project": {
+    "name": "ajclemente.ca"
+  },
+  "plugins": [
+    "@sanity/base",
+    "@sanity/default-layout",
+    "@sanity/default-login",
+    "@sanity/desk-tool"
+  ],
+  "env": {
+    "development": {
+      "plugins": [
+        "@sanity/vision"
+      ]
+    }
+  },
+  "parts": [
+    {
+      "name": "part:@sanity/base/schema",
+      "path": "./schemas/schema"
+    },
+    {
+      "name": "part:@sanity/desk-tool/structure",
+      "path": "./config/deskStructure"
+    }
+  ]
+}
