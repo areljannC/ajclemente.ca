@@ -40,6 +40,10 @@ export default {
             value: 'partTime',
           },
           {
+            title: 'Co-op',
+            value: 'coop',
+          },
+          {
             title: 'Casual',
             value: 'casual',
           },
