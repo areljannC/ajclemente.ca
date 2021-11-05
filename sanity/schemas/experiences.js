@@ -44,6 +44,10 @@ export default {
             value: 'coop',
           },
           {
+            title: 'Freelance',
+            value: 'freelance',
+          },
+          {
             title: 'Casual',
             value: 'casual',
           },
