@@ -36,6 +36,10 @@ export default {
             value: 'contractPartTime',
           },
           {
+            title: 'Part-Time',
+            value: 'partTime',
+          },
+          {
             title: 'Casual',
             value: 'casual',
           },
