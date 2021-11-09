@@ -6,6 +6,7 @@ import { groq } from 'next-sanity';
 // SHARED IMPORTS
 import { SanityClient } from '@shared/singletons';
 import { SEO } from '@shared/components';
+import Experiences from '@containers/Experiences';
 
 // Types
 type PropsType = {
@@ -23,12 +24,27 @@ type PropsType = {
       };
       canonical?: string;
     };
+    experiences?: Array<{
+      role?: string;
+      companyName?: string;
+      employmentType?: string;
+      location?: string;
+      description?: any;
+      duration?: {
+        startDate?: string;
+        endDate?: string;
+        present?: boolean;
+      };
+    }>;
   };
 };
 
-// Sanity Query
+// Sanity Queries
 const query = groq`
-  *[_id == 'experiencePage'][0]
+  {
+    'seo': *[_id == 'experiencePage'][0].seo,
+    'experiences': *[_type == 'experiences'] | order(_createdAt desc)
+  }
 `;
 
 // Static Render
@@ -41,7 +57,7 @@ export const getStaticProps: GetStaticProps = async () => {
 const ExperiencePage: FunctionComponent<PropsType> = (props: PropsType) => (
   <Fragment>
     <SEO seo={props.pageData.seo} />
-    <p>ExperiencePage</p>
+    <Experiences experiences={props.pageData.experiences} />
   </Fragment>
 );
 
