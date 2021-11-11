@@ -16,8 +16,8 @@ const ThemeToggler: FunctionComponent = () => {
       icon={
         <Icon
           as={theme.colorMode === COLOR_MODE.LIGHT ? MdDarkMode : MdLightMode}
-          width='32px'
-          height='32px'
+          width={{ base: '24px', md: '28px' }}
+          height={{ base: '24px', md: '28px' }}
         />
       }
       aria-label='Open Nav Menu'

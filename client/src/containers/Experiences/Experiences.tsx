@@ -26,7 +26,7 @@ const Experiences: FunctionComponent<PropsType> = (props: PropsType) => (
     width='100%'
     height='100%'
     margin='auto'
-    spacing='16'
+    spacing='8'
     flexDirection='column'
     justifyContent='center'
     alignItems='center'

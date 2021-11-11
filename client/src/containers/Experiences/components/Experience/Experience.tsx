@@ -32,20 +32,42 @@ const Experience: FunctionComponent<PropsType> = (props: PropsType) => {
       width='100%'
       height='100%'
       margin='auto'
-      padding='8'
+      padding={{ base: '16px', lg: '32px' }}
       flexDirection='column'
       justifyContent='center'
       alignItems='center'
       boxShadow={boxShadowStyle}
     >
-      <Flex width='100%' height='fit-content' justifyContent='space-between' alignItems='center'>
-        <Heading as='h2' children={props.experience.role} />
-        <Heading as='h3' fontSize='24px' children={props.experience.companyName} />
-      </Flex>
-      <Flex width='100%' height='fit-content' display={{ base: 'none', lg: 'flex' }} justifyContent='space-between' alignItems='center'>
-        <Text fontSize='24px' children={props.experience.employmentType} />
+      <Flex
+        width='100%'
+        height='fit-content'
+        flexDirection={{ base: 'column', md: 'row' }}
+        justifyContent='space-between'
+        alignItems={{ base: 'flex-start', md: 'center' }}
+      >
+        <Heading
+          as='h2'
+          fontSize={{ base: 'md', md: 'lg', lg: 'xl' }}
+          children={props.experience.role}
+        />
         <Text
-          fontSize='24px'
+          fontSize={{ base: 'sm', md: 'md', lg: 'lg' }}
+          children={props.experience.companyName}
+        />
+      </Flex>
+      <Flex
+        width='100%'
+        height='fit-content'
+        flexDirection={{ base: 'column', md: 'row' }}
+        justifyContent='space-between'
+        alignItems={{ base: 'flex-start', md: 'center' }}
+      >
+        <Text
+          fontSize={{ base: 'sm', md: 'md', lg: 'lg' }}
+          children={props.experience.employmentType}
+        />
+        <Text
+          fontSize={{ base: 'sm', md: 'md', lg: 'lg' }}
           children={`${format(new Date(props.experience.duration.startDate), 'MMM. d y')} - ${
             props.experience.duration.present
               ? 'Present'
@@ -53,20 +75,31 @@ const Experience: FunctionComponent<PropsType> = (props: PropsType) => {
           }`}
         />
       </Flex>
-      <Flex width='100%' height='fit-content' display={{ base: 'none', lg: 'flex' }} justifyContent='flex-end' alignItems='center'>
-        <Text fontSize='24px' children={props.experience.location} />
+      <Flex
+        width='100%'
+        height='fit-content'
+        justifyContent={{ base: 'flex-start', md: 'flex-end' }}
+        alignItems='center'
+      >
+        <Text fontSize={{ base: 'sm', md: 'md', lg: 'lg' }} children={props.experience.location} />
       </Flex>
-      <Flex width='100%' height='fit-content' justifyContent='space-between' alignItems='center'>
-        {props.experience.description && (
+      {props.experience.description && (
+        <Flex
+          width='100%'
+          height='fit-content'
+          marginTop={4}
+          justifyContent='space-between'
+          alignItems='center'
+        >
           <PortableText
             className=''
             content={props.experience.description}
             serializers={{
-              normal: (props) => <Text fontSize='24px' marginBottom='1' {...props} />
+              normal: (props) => <Text fontSize={{ base: 'sm', md: 'md', lg: 'lg' }}  marginBottom='1' {...props} />
             }}
           />
-        )}
-      </Flex>
+        </Flex>
+      )}
     </Flex>
   );
 };

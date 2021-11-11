@@ -4,7 +4,7 @@ import { Flex, Heading, Text } from '@chakra-ui/react';
 import PortableText from 'react-portable-text';
 
 // SHARED IMPORTS
-import { useBoxShadowStyle } from '@shared/hooks'
+import { useBoxShadowStyle } from '@shared/hooks';
 
 // Types
 type PropsType = { splash?: any };
@@ -18,7 +18,7 @@ const Home: FunctionComponent<PropsType> = (props: PropsType) => {
       width='fit-content'
       height='100%'
       margin='auto'
-      padding='8'
+      padding={{ base: 4, md: 6, lg: 8 }}
       flexDirection='column'
       justifyContent='center'
       alignItems='center'
@@ -28,8 +28,17 @@ const Home: FunctionComponent<PropsType> = (props: PropsType) => {
         className=''
         content={props.splash}
         serializers={{
-          h1: (props) => <Heading as='h1' marginBottom='8' {...props} />,
-          normal: (props) => <Text marginBottom='1' {...props} />
+          h1: (props) => (
+            <Heading
+              as='h1'
+              marginBottom={4}
+              fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
+              {...props}
+            />
+          ),
+          normal: (props) => (
+            <Text marginBottom={2} fontSize={{ base: 'sm', md: 'md', lg: 'lg' }} {...props} />
+          )
         }}
       />
     </Flex>
