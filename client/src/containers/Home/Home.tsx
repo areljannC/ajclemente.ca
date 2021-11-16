@@ -1,7 +1,9 @@
 // EXTERNAL IMPORTS
 import React, { FunctionComponent, memo } from 'react';
-import { Flex, Heading, Text } from '@chakra-ui/react';
+import { Flex, Heading, Text, Link, Icon } from '@chakra-ui/react';
 import PortableText from 'react-portable-text';
+import { BiLinkExternal } from 'react-icons/bi';
+
 
 // SHARED IMPORTS
 import { useBoxShadowStyle } from '@shared/hooks';
@@ -38,6 +40,23 @@ const Home: FunctionComponent<PropsType> = (props: PropsType) => {
           ),
           normal: (props) => (
             <Text marginBottom={2} fontSize={{ base: 'sm', md: 'md', lg: 'lg' }} {...props} />
+          ),
+          link: (props) => (
+            <Link
+              href={props.href}
+              isExternal={true}
+              children={
+                <Flex width='fit-content' height='fit-content' display='inline-flex' alignItems='center'>
+                  <Heading
+                    as='h2'
+                    marginRight={1}
+                    fontSize={{ base: 'md', md: 'lg', lg: 'xl' }}
+                    children={props.children}
+                  />
+                  <Icon as={BiLinkExternal} />
+                </Flex>
+              }
+            />
           )
         }}
       />
