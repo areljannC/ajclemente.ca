@@ -64,15 +64,15 @@ const Experience: FunctionComponent<PropsType> = (props: PropsType) => {
       >
         <Text
           fontSize={{ base: 'sm', md: 'md', lg: 'lg' }}
-          children={props.experience.employmentType}
+          children={`${format(new Date(props.experience.duration.startDate), 'MMM d, y')} - ${
+            props.experience.duration.present
+              ? 'Present'
+              : format(new Date(props.experience.duration.endDate), 'MMM d, y')
+          }`}
         />
         <Text
           fontSize={{ base: 'sm', md: 'md', lg: 'lg' }}
-          children={`${format(new Date(props.experience.duration.startDate), 'MMM. d y')} - ${
-            props.experience.duration.present
-              ? 'Present'
-              : format(new Date(props.experience.duration.endDate), 'MMM. d y')
-          }`}
+          children={props.experience.employmentType}
         />
       </Flex>
       <Flex
@@ -95,7 +95,9 @@ const Experience: FunctionComponent<PropsType> = (props: PropsType) => {
             className=''
             content={props.experience.description}
             serializers={{
-              normal: (props) => <Text fontSize={{ base: 'sm', md: 'md', lg: 'lg' }}  marginBottom='1' {...props} />
+              normal: (props) => (
+                <Text fontSize={{ base: 'sm', md: 'md', lg: 'lg' }} marginBottom='1' {...props} />
+              )
             }}
           />
         </Flex>

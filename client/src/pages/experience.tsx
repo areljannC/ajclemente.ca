@@ -39,7 +39,7 @@ type PropsType = {
   };
 };
 
-// Sanity Queries
+// Sanity Query
 const query = groq`
   {
     'seo': *[_id == 'experiencePage'][0].seo,
