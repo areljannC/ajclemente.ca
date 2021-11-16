@@ -42,6 +42,7 @@ const Home: FunctionComponent<PropsType> = (props: PropsType) => {
           ),
           link: (props) => (
             <Link
+              marginBottom={2}
               href={props.href}
               isExternal={true}
               children={
@@ -51,11 +52,7 @@ const Home: FunctionComponent<PropsType> = (props: PropsType) => {
                   display='inline-flex'
                   alignItems='center'
                 >
-                  <Text
-                    marginBottom={2}
-                    fontSize={{ base: 'sm', md: 'md', lg: 'lg' }}
-                    children={props.children}
-                  />
+                  <Text fontSize={{ base: 'sm', md: 'md', lg: 'lg' }} children={props.children} />
                   <Icon as={BiLinkExternal} />
                 </Flex>
               }
