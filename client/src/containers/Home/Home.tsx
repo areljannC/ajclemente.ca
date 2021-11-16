@@ -52,7 +52,12 @@ const Home: FunctionComponent<PropsType> = (props: PropsType) => {
                   display='inline-flex'
                   alignItems='center'
                 >
-                  <Text fontSize={{ base: 'sm', md: 'md', lg: 'lg' }} children={props.children} />
+                  <Text
+                    marginRight={1}
+                    fontSize={{ base: 'sm', md: 'md', lg: 'lg' }}
+                    fontWeight='bold'
+                    children={props.children}
+                  />
                   <Icon as={BiLinkExternal} />
                 </Flex>
               }
