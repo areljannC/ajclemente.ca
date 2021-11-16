@@ -1,8 +1,8 @@
 // EXTERNAL IMPORTS
 import React, { FunctionComponent, memo } from 'react';
 import { Flex, Heading, Link, Icon, Text, Tag, useColorMode } from '@chakra-ui/react';
-import { BiLinkExternal } from 'react-icons/bi';
 import PortableText from 'react-portable-text';
+import { BiLinkExternal } from 'react-icons/bi';
 import { format } from 'date-fns';
 
 // SHARED IMPORTS
@@ -55,7 +55,7 @@ const Project: FunctionComponent<PropsType> = (props: PropsType) => {
             <Flex width='fit-content' height='fit-content' alignItems='center'>
               <Heading
                 as='h2'
-                marginRight={2}
+                marginRight={1}
                 fontSize={{ base: 'md', md: 'lg', lg: 'xl' }}
                 children={props.project.title}
               />
