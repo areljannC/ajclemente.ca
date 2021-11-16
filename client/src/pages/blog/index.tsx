@@ -7,6 +7,9 @@ import { groq } from 'next-sanity';
 import { SanityClient } from '@shared/singletons';
 import { SEO } from '@shared/components';
 
+// LOCAL IMPORTS
+import Blog from '@containers/Blog';
+
 // Types
 type PropsType = {
   pageData: {
@@ -41,7 +44,7 @@ export const getStaticProps: GetStaticProps = async () => {
 const BlogPage: FunctionComponent<PropsType> = (props: PropsType) => (
   <Fragment>
     <SEO seo={props.pageData.seo} />
-    <p>BlogPage</p>
+    <Blog />
   </Fragment>
 );
 
