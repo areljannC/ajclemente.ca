@@ -2,6 +2,7 @@ export const NAV_LINKS = [
   {
     name: 'home',
     title: 'Home',
+    route: '/'
   },
   {
     name: 'projects',
