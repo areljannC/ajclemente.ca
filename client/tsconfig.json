@@ -4,6 +4,9 @@
     "paths": {
       "@shared/*": [
         "./src/shared/*"
+      ],
+      "@containers/*": [
+        "./src/containers/*"
       ]
     },
     "target": "es5",

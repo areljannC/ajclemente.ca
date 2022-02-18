@@ -2,12 +2,11 @@
 import React, { FunctionComponent, Fragment, memo } from 'react';
 import { GetStaticProps } from 'next';
 import { groq } from 'next-sanity';
-import PortableText from 'react-portable-text';
-import { Flex, Heading, Text } from '@chakra-ui/react';
 
 // SHARED IMPORTS
 import { SanityClient } from '@shared/singletons';
 import { SEO } from '@shared/components';
+import Home from '@containers/Home';
 
 // Types
 type PropsType = {
@@ -44,23 +43,7 @@ export const getStaticProps: GetStaticProps = async () => {
 const HomePage: FunctionComponent<PropsType> = (props: PropsType) => (
   <Fragment>
     <SEO seo={props.pageData.seo} />
-    <Flex
-      width='100%'
-      height='100%'
-      margin='auto'
-      flexDirection='column'
-      justifyContent='center'
-      alignItems='center'
-    >
-      <PortableText
-        className=''
-        content={props.pageData.splash}
-        serializers={{
-          h1: (props) => <Heading as='h1' marginBottom='8' {...props} />,
-          normal: (props) => <Text marginBottom='1' {...props} />
-        }}
-      />
-    </Flex>
+    <Home splash={props.pageData.splash} />
   </Fragment>
 );
 

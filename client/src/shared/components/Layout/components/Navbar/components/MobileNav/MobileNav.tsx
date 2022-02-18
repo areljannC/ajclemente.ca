@@ -31,7 +31,13 @@ const MobileNav: FunctionComponent = () => {
     <Fragment>
       <IconButton
         onClick={disclosure.onOpen}
-        icon={<Icon as={RiMenuFill} width='24px' height='24px' />}
+        icon={
+          <Icon
+            as={RiMenuFill}
+            width={{ base: '24px', md: '28px' }}
+            height={{ base: '24px', md: '28px' }}
+          />
+        }
         aria-label='Open Nav Menu'
         display={{ lg: 'none' }}
         backgroundColor='transparent'
@@ -43,7 +49,13 @@ const MobileNav: FunctionComponent = () => {
           <Flex flexDirection='column' alignItems='flex-start' padding='4'>
             <IconButton
               onClick={disclosure.onClose}
-              icon={<Icon as={RiCloseFill} width='24px' height='24px' />}
+              icon={
+                <Icon
+                  as={RiCloseFill}
+                  width={{ base: '24px', md: '28px' }}
+                  height={{ base: '24px', md: '28px' }}
+                />
+              }
               aria-label='Close Nav Menu'
               width='fit-content'
               marginLeft='auto'
@@ -56,7 +68,7 @@ const MobileNav: FunctionComponent = () => {
                   <Link _hover={{ textDecoration: 'none' }}>
                     <Text
                       color={navLink.route === router.pathname ? 'gray' : 'inherit'}
-                      fontSize='16px'
+                      fontSize={{ base: 'sm', md: 'md', lg: 'lg' }}
                       fontFamily='body'
                       textTransform='uppercase'
                       children={navLink.title}

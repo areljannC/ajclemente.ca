@@ -6,6 +6,7 @@ import { groq } from 'next-sanity';
 // SHARED IMPORTS
 import { SanityClient } from '@shared/singletons';
 import { SEO } from '@shared/components';
+import Projects from '@containers/Projects';
 
 // Types
 type PropsType = {
@@ -23,12 +24,27 @@ type PropsType = {
       };
       canonical?: string;
     };
+    projects?: Array<{
+      title?: string;
+      description?: any;
+      link?: string;
+      tags?: Array<string>;
+      duration?: {
+        startDate?: string;
+        endDate?: string;
+        present?: boolean;
+      };
+      coverImage?: string;
+    }>;
   };
 };
 
 // Sanity Query
 const query = groq`
-  *[_id == 'aboutPage'][0]
+  {
+    'seo': *[_id == 'projectsPage'][0].seo,
+    'projects': *[_type == 'projects'] | order(_createdAt desc)
+  }
 `;
 
 // Static Render
@@ -38,14 +54,14 @@ export const getStaticProps: GetStaticProps = async () => {
 };
 
 // Component
-const AboutPage: FunctionComponent<PropsType> = (props: PropsType) => (
+const ProjectsPage: FunctionComponent<PropsType> = (props: PropsType) => (
   <Fragment>
     <SEO seo={props.pageData.seo} />
-    <p>AboutPage</p>
+    <Projects projects={props.pageData.projects} />
   </Fragment>
 );
 
 // Display Name
-AboutPage.displayName = AboutPage.name;
+ProjectsPage.displayName = ProjectsPage.name;
 
-export default memo(AboutPage);
+export default memo(ProjectsPage);

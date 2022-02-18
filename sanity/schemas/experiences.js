@@ -21,35 +21,35 @@ export default {
         list: [
           {
             title: 'Permanent Full-Time',
-            value: 'permanentFullTime',
+            value: 'Permanent Full-Time',
           },
           {
             title: 'Permanent Part-Time',
-            value: 'permanentPartTime',
+            value: 'Permanent Part-Time',
           },
           {
             title: 'Contract Full-Time',
-            value: 'contractFullTime',
+            value: 'Contract Full-Time',
           },
           {
             title: 'Contract Part-Time',
-            value: 'contractPartTime',
+            value: 'Contract Part-Time',
           },
           {
             title: 'Part-Time',
-            value: 'partTime',
+            value: 'Part-Time',
           },
           {
             title: 'Co-op',
-            value: 'coop',
+            value: 'Co-op',
           },
           {
             title: 'Freelance',
-            value: 'freelance',
+            value: 'Freelance',
           },
           {
             title: 'Casual',
-            value: 'casual',
+            value: 'Casual',
           },
         ],
       },

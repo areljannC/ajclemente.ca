@@ -15,13 +15,13 @@ const DesktopNav: FunctionComponent = () => {
   const router = useRouter();
 
   return (
-    <HStack spacing='8' display={{ base: 'none', lg: 'flex' }}>
+    <HStack spacing={8} display={{ base: 'none', lg: 'flex' }}>
       {NAV_LINKS.map((navLink) => (
         <NextLink key={navLink.name} href={navLink.route} passHref>
           <Link _hover={{ textDecoration: 'none' }}>
             <Text
               color={navLink.route === router.pathname ? 'gray' : 'inherit'}
-              fontSize='16px'
+              fontSize={{ base: 'sm', md: 'md', lg: 'lg' }}
               fontFamily='body'
               textTransform='uppercase'
               children={navLink.title}
