@@ -6,14 +6,14 @@ import createCache from '@emotion/cache';
 import createEmotionServer from '@emotion/server/create-instance';
 
 // SHARED IMPORTS
-import { CHAKRA_THEME } from '@shared/constants';
+import { CHAKRA_THEME } from '@constants';
 
 // Chakra UI FOUC Fix | https://griko.id/blog/prevent-fouc-on-next-js-chakra-ui
 const emotionCache = createCache({ key: 'css' });
 const { extractCritical } = createEmotionServer(emotionCache);
 
 // Component
-export default class CustomDocument extends Document {
+class CustomDocument extends Document {
   static async getInitialProps(context: DocumentContext) {
     const initialProps = await Document.getInitialProps(context);
     const styles = extractCritical(initialProps.html);
@@ -36,6 +36,12 @@ export default class CustomDocument extends Document {
         <Head>
           <meta charSet='UTF-8' />
           <meta content='ie-edge' httpEquiv='X-UA-Compatible' />
+          <link rel='preconnect' href='https://fonts.googleapis.com' />
+          <link rel='preconnect' href='https://fonts.gstatic.com' crossOrigin='anonymous' />
+          <link
+            href='https://fonts.googleapis.com/css2?family=PT+Mono&family=Roboto&display=swap'
+            rel='stylesheet'
+          />
         </Head>
         <body>
           <ColorModeScript initialColorMode={CHAKRA_THEME.config.initialColorMode} />
@@ -46,3 +52,5 @@ export default class CustomDocument extends Document {
     );
   }
 }
+
+export default CustomDocument;

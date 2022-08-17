@@ -1,1 +1,1 @@
-export { default as SanityClient } from './SanityClient';
+export { default as SanityClient } from './sanity-client';

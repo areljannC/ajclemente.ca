@@ -1,2 +1,3 @@
-export { default as Layout } from './Layout';
-export { default as SEO } from './SEO';
+export { default as SEO } from './seo';
+export { default as Layout } from './layout';
+export { default as PortableText } from './portable-text';

@@ -1,1 +1,1 @@
-export * from './useBoxShadowStyle';
+export { default as useBoxShadowStyle } from './use-box-shadow-style';

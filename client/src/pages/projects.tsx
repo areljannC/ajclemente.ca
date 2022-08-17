@@ -4,42 +4,20 @@ import { GetStaticProps } from 'next';
 import { groq } from 'next-sanity';
 
 // SHARED IMPORTS
-import { SanityClient } from '@shared/singletons';
-import { SEO } from '@shared/components';
-import Projects from '@containers/Projects';
+import { SEOType, ProjectType } from '@types';
+import { SanityClient } from '@singletons';
+import { SEO } from '@components';
+import { ProjectsContainer } from '@containers';
 
 // Types
 type PropsType = {
-  pageData: {
-    seo?: {
-      title?: string;
-      description?: string;
-      keywords?: string[];
-      robots?: string[];
-      og?: {
-        siteName?: string;
-        title?: string;
-        description?: string;
-        url?: string;
-      };
-      canonical?: string;
-    };
-    projects?: Array<{
-      title?: string;
-      description?: any;
-      link?: string;
-      tags?: Array<string>;
-      duration?: {
-        startDate?: string;
-        endDate?: string;
-        present?: boolean;
-      };
-      coverImage?: string;
-    }>;
+  cmsData: {
+    seo?: SEOType;
+    projects?: Array<ProjectType>;
   };
 };
 
-// Sanity Query
+// CMS Query
 const query = groq`
   {
     'seo': *[_id == 'projectsPage'][0].seo,
@@ -47,21 +25,21 @@ const query = groq`
   }
 `;
 
-// Static Render
+// SSG
 export const getStaticProps: GetStaticProps = async () => {
-  const pageData = await SanityClient.fetch(query);
-  return { props: { pageData } };
+  const cmsData = await SanityClient.fetch(query);
+  return { props: { cmsData } };
 };
 
 // Component
 const ProjectsPage: FunctionComponent<PropsType> = (props: PropsType) => (
   <Fragment>
-    <SEO seo={props.pageData.seo} />
-    <Projects projects={props.pageData.projects} />
+    <SEO seo={props.cmsData.seo} />
+    <ProjectsContainer projects={props.cmsData.projects} />
   </Fragment>
 );
 
 // Display Name
-ProjectsPage.displayName = ProjectsPage.name;
+ProjectsPage.displayName = 'ProjectsPage';
 
 export default memo(ProjectsPage);
