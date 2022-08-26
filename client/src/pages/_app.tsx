@@ -5,23 +5,15 @@ import Head from 'next/head';
 import { ChakraProvider } from '@chakra-ui/react';
 
 // SHARED IMPORTS
-import { CHAKRA_THEME } from '@shared/constants';
-import { Layout } from '@shared/components';
+import { CHAKRA_THEME } from '@constants';
+import { Layout } from '@components';
 
 // Component
-const App: FunctionComponent<AppProps> = (props: AppProps) => (
+const CustomApp: FunctionComponent<AppProps> = (props: AppProps) => (
   <Fragment>
     <Head>
-      <meta charSet='UTF-8' />
-      <meta content='ie=edge' httpEquiv='X-UA-Compatible' />
       <meta content='width=device-width, initial-scale=1.0' name='viewport' />
       <meta property='og:type' content='website' />
-      <link rel='preconnect' href='https://fonts.googleapis.com' />
-      <link rel='preconnect' href='https://fonts.gstatic.com' crossOrigin='anonymous' />
-      <link
-        href='https://fonts.googleapis.com/css2?family=PT+Mono&family=Roboto&display=swap'
-        rel='stylesheet'
-      />
     </Head>
     <ChakraProvider theme={CHAKRA_THEME}>
       <Layout>
@@ -32,6 +24,6 @@ const App: FunctionComponent<AppProps> = (props: AppProps) => (
 );
 
 // Display Name
-App.displayName = App.name;
+CustomApp.displayName = 'CustomApp';
 
-export default memo(App);
+export default memo(CustomApp);

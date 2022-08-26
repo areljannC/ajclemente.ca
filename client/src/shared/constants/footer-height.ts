@@ -1,0 +1,10 @@
+const MOBILE_HEIGHT = '124px';
+const DESKTOP_HEIGHT = '124px';
+const FOOTER_HEIGHT = {
+  base: MOBILE_HEIGHT,
+  md: MOBILE_HEIGHT,
+  lg: DESKTOP_HEIGHT,
+  xl: DESKTOP_HEIGHT
+};
+
+export default FOOTER_HEIGHT;

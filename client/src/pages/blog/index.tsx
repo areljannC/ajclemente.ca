@@ -4,51 +4,41 @@ import { GetStaticProps } from 'next';
 import { groq } from 'next-sanity';
 
 // SHARED IMPORTS
-import { SanityClient } from '@shared/singletons';
-import { SEO } from '@shared/components';
+import { SEOType } from '@types';
+import { SanityClient } from '@singletons';
+import { SEO } from '@components';
 
 // LOCAL IMPORTS
-import Blog from '@containers/Blog';
+import { BlogContainer } from '@containers';
 
 // Types
 type PropsType = {
-  pageData: {
-    seo?: {
-      title?: string;
-      description?: string;
-      keywords?: string[];
-      robots?: string[];
-      og?: {
-        siteName?: string;
-        title?: string;
-        description?: string;
-        url?: string;
-      };
-      canonical?: string;
-    };
+  cmsData: {
+    seo?: SEOType;
+    splash?: any;
   };
 };
 
-// Sanity Query
+// CMS Query
 const query = groq`
   *[_id == 'blogPage'][0]
 `;
 
-// Static Render
+// SSG
 export const getStaticProps: GetStaticProps = async () => {
-  const pageData = await SanityClient.fetch(query);
-  return { props: { pageData } };
+  const cmsData = await SanityClient.fetch(query);
+  return { props: { cmsData } };
 };
 
 // Component
 const BlogPage: FunctionComponent<PropsType> = (props: PropsType) => (
   <Fragment>
-    <SEO seo={props.pageData.seo} />
-    <Blog />
+    <SEO seo={props.cmsData.seo} />
+    <BlogContainer splash={props.cmsData.splash} />
   </Fragment>
 );
 
 // Display Name
-BlogPage.displayName = BlogPage.name;
+BlogPage.displayName = 'BlogPage';
 
 export default memo(BlogPage);

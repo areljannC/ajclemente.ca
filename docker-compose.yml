@@ -1,0 +1,33 @@
+version: '3.8'
+services:
+  server:
+    container_name: server
+    build: ./server
+    ports:
+      - '9090:9090'
+    environment:
+      - PORT=9090
+    volumes:
+      - ./server:/usr/src/server
+  client:
+    container_name: client
+    build: ./client
+    ports:
+      - '9091:9091'
+    environment:
+      - PORT=9091
+      - NEXT_PUBLIC_SANITY_DATASET=production
+      - NEXT_PUBLIC_SANITY_PROJECT_ID=6o2cr990
+      - NEXT_PUBLIC_SANITY_API_VERSION=2021-08-31
+      - NEXT_PUBLIC_SANITY_USE_CDN=true
+    volumes:
+      - ./client:/usr/src/client
+  cms:
+    container_name: cms
+    build: ./cms
+    ports:
+      - '3333:3333'
+    environment:
+      - PORT=3333
+    volumes:
+      - ./cms:/usr/src/cms
