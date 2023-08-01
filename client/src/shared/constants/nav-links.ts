@@ -8,11 +8,6 @@ const NAV_LINKS = [
     name: 'projects',
     title: 'Projects',
     route: '/projects'
-  },
-  {
-    name: 'blog',
-    title: 'Blog',
-    route: '/blog'
   }
 ];
 
