@@ -1,0 +1,6 @@
+@import "tailwindcss";
+
+@theme inline {
+	--font-sans: var(--font-patrick-hand), sans-serif;
+	--font-mono: var(--font-jetbrains-mono), monospace;
+}

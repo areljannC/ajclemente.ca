@@ -1,0 +1,40 @@
+---
+interface Props {
+	title: string;
+	description: string;
+}
+
+const { title, description } = Astro.props;
+
+import '../styles/global.css';
+import { Font } from 'astro:assets';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1" />
+		<title>{title}</title>
+		<meta name="description" content={description} />
+		<meta name="robots" content="index, follow" />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content="https://ajclemente.ca/" />
+		<!--
+		<meta property="og:image" content="/og-image.png" />        update content
+		<meta name="twitter:card" content="summary_large_image" />  update Twitter info
+		<meta name="twitter:title" content={title} />               update Twitter info
+		<meta name="twitter:description" content={description} />.  update Twitter info
+		<meta name="twitter:image" content="/og-image.png" />.      update Twitter info
+		-->
+		<link rel="canonical" href="https://ajclemente.ca/" />
+		<link rel="icon" href="/favicon.ico" />
+		<Font cssVariable="--font-patrick-hand" preload />
+		<Font cssVariable="--font-jetbrains-mono" preload />
+	</head>
+	<body class="bg-white dark:bg-zinc-900 text-black dark:text-white transition-colors duration-200">
+		<slot />
+	</body>
+</html>
