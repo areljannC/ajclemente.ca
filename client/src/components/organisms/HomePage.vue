@@ -5,10 +5,13 @@
 			<p class="text-xl">I write code without the slop.</p>
 			<ul class="flex gap-4" role="list">
 				<li role="listitem">
-					<a class="text-lg underline text-blue-400 hover:text-blue-500" href="/experience">Experience</a>
+					<a class="text-lg underline text-blue-400 hover:text-blue-500" href="/blog">Blog</a>
 				</li>
 				<li role="listitem">
 					<a class="text-lg underline text-blue-400 hover:text-blue-500" href="/projects">Projects</a>
+				</li>
+				<li role="listitem">
+					<a class="text-lg underline text-blue-400 hover:text-blue-500" href="/experience">Experience</a>
 				</li>
 				<li role="listitem">
 					<a class="text-lg underline text-blue-400 hover:text-blue-500" href="/about">About</a>
