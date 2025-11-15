@@ -15,7 +15,7 @@ onMounted(() => {
 </script>
 
 <template>
-	<main class="w-screen h-screen flex flex-col">
+	<main class="w-screen h-screen flex flex-col px-4">
 		<section class="m-auto flex flex-col justify-center items-center text-center">
 			<h1 class="text-4xl font-bold">404</h1>
 			<p class="text-xl">Sorry, the page you are looking for is probably in another castle.</p>
